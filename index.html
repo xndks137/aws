@@ -3,163 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>모던 포트폴리오</title>
+    <title>오늘의 저녁 메뉴 추천</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
-            font-family: 'Noto Sans KR', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        nav {
+            font-family: 'Arial', sans-serif;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 20px 0;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
         }
-        nav ul {
-            display: flex;
-            list-style: none;
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        nav ul li {
-            margin-left: 30px;
-        }
-        nav ul li a {
-            text-decoration: none;
+
+        h1 {
             color: #333;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            margin-bottom: 2rem;
         }
-        nav ul li a:hover {
-            color: #007bff;
-        }
-        .hero {
-            background: linear-gradient(135deg, #007bff, #00c6ff);
-            color: #fff;
-            text-align: center;
-            padding: 150px 0;
-            margin-top: 80px;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .section {
-            padding: 80px 0;
-        }
-        .section h2 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .project {
-            background: #fff;
+
+        #menuDisplay {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            border: 2px solid #ddd;
             border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            min-width: 200px;
         }
-        .project:hover {
-            transform: translateY(-5px);
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .project img {
-            width: 100%;
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .menu-image {
+            width: 200px;
             height: 200px;
             object-fit: cover;
-        }
-        .project-info {
-            padding: 20px;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <h1>모던 포트폴리오</h1>
-                <ul>
-                    <li><a href="#home">홈</a></li>
-                    <li><a href="#projects">프로젝트</a></li>
-                    <li><a href="#about">소개</a></li>
-                    <li><a href="#contact">연락처</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="container">
+        <h1>오늘의 저녁 메뉴 추천</h1>
+        <div id="menuDisplay">여기에 메뉴가 표시됩니다</div>
+        <img id="menuImage" class="menu-image" src="" alt="음식 이미지">
+        <button onclick="recommendMenu()">메뉴 추천받기</button>
+    </div>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>안녕하세요, 저는 웹 개발자입니다</h1>
-            <p>창의적이고 효율적인 웹 솔루션을 제공합니다</p>
-        </div>
-    </section>
+    <script>
+        const menus = [
+            {
+                name: "김치찌개",
+                image: "https://recipe1.ezmember.co.kr/cache/recipe/2016/06/29/e7401296033ab8e4297cd53d71e1bba91.jpg"
+            },
+            {
+                name: "제육볶음",
+                image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/04/22/d74c6731186aca7d1f4b5670fb574ba11.jpg"
+            },
+            {
+                name: "된장찌개",
+                image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/04/06/67b9c68f33c62b66aa57f16c44c16b981.jpg"
+            },
+            {
+                name: "간장계란밥",
+                image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/04/22/f898a4e984a0b06453ca0581a31fe6081.jpg"
+            },
+            {
+                name: "라면",
+                image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/04/22/f898a4e984a0b06453ca0581a31fe6081.jpg"
+            },
+            {
+                name: "김밥",
+                image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/04/22/f898a4e984a0b06453ca0581a31fe6081.jpg"
+            },
+            {
+                name: "볶음밥",
+                image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/04/22/f898a4e984a0b06453ca0581a31fe6081.jpg"
+            },
+            {
+                name: "카레라이스",
+                image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/04/22/f898a4e984a0b06453ca0581a31fe6081.jpg"
+            }
+        ];
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>프로젝트</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="https://via.placeholder.com/300x200" alt="프로젝트 1">
-                    <div class="project-info">
-                        <h3>프로젝트 1</h3>
-                        <p>프로젝트 설명이 여기에 들어갑니다.</p>
-                    </div>
-                </div>
-                <div class="project">
-                    <img src="https://via.placeholder.com/300x200" alt="프로젝트 2">
-                    <div class="project-info">
-                        <h3>프로젝트 2</h3>
-                        <p>프로젝트 설명이 여기에 들어갑니다.</p>
-                    </div>
-                </div>
-                <div class="project">
-                    <img src="https://via.placeholder.com/300x200" alt="프로젝트 3">
-                    <div class="project-info">
-                        <h3>프로젝트 3</h3>
-                        <p>프로젝트 설명이 여기에 들어갑니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 모던 포트폴리오. 모든 권리 보유.</p>
-        </div>
-    </footer>
+        function recommendMenu() {
+            const randomIndex = Math.floor(Math.random() * menus.length);
+            const selectedMenu = menus[randomIndex];
+            
+            document.getElementById('menuDisplay').textContent = selectedMenu.name;
+            
+            const menuImage = document.getElementById('menuImage');
+            menuImage.src = selectedMenu.image;
+            menuImage.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
