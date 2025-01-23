@@ -1,68 +1,165 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>트렌디한 웹사이트</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모던 포트폴리오</title>
     <style>
-      body {
-          font-family: 'Helvetica Neue', sans-serif;
-          margin: 0;
-          padding: 0;
-          background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-          color: #333;
-      }
-      .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 20px;
-      }
-      header {
-          text-align: center;
-          padding: 100px 0;
-      }
-      h1 {
-          font-size: 4em;
-          margin-bottom: 20px;
-          color: #fff;
-          text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-      }
-      .content {
-          background: rgba(255,255,255,0.8);
-          border-radius: 10px;
-          padding: 40px;
-          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      }
-      .btn {
-          display: inline-block;
-          padding: 12px 24px;
-          background: #ff6b6b;
-          color: #fff;
-          text-decoration: none;
-          border-radius: 30px;
-          transition: all 0.3s ease;
-      }
-      .btn:hover {
-          background: #ff8787;
-          transform: translateY(-3px);
-          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #007bff;
+        }
+        .hero {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+            margin-top: 80px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section {
+            padding: 80px 0;
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .project {
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+        }
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 20px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>멋진 웹사이트에 오신 것을 환영합니다</h1>
-        <a href="#" class="btn">자세히 보기</a>
-      </header>
-      <div class="content">
-        <h2>우리의 이야기</h2>
-        <p>
-          이 웹사이트는 현대적인 디자인 트렌드를 반영하여 제작되었습니다.
-          그라데이션 배경, 부드러운 그림자 효과, 그리고 깔끔한 타이포그래피를
-          사용하여 시각적으로 매력적인 사용자 경험을 제공합니다.
-        </p>
-      </div>
-    </div>
-  </body>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>모던 포트폴리오</h1>
+                <ul>
+                    <li><a href="#home">홈</a></li>
+                    <li><a href="#projects">프로젝트</a></li>
+                    <li><a href="#about">소개</a></li>
+                    <li><a href="#contact">연락처</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>안녕하세요, 저는 웹 개발자입니다</h1>
+            <p>창의적이고 효율적인 웹 솔루션을 제공합니다</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>프로젝트</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="https://via.placeholder.com/300x200" alt="프로젝트 1">
+                    <div class="project-info">
+                        <h3>프로젝트 1</h3>
+                        <p>프로젝트 설명이 여기에 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="https://via.placeholder.com/300x200" alt="프로젝트 2">
+                    <div class="project-info">
+                        <h3>프로젝트 2</h3>
+                        <p>프로젝트 설명이 여기에 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="https://via.placeholder.com/300x200" alt="프로젝트 3">
+                    <div class="project-info">
+                        <h3>프로젝트 3</h3>
+                        <p>프로젝트 설명이 여기에 들어갑니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 모던 포트폴리오. 모든 권리 보유.</p>
+        </div>
+    </footer>
+</body>
 </html>
