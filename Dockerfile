@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:latest
+FROM docker.io/library/nginxinc/nginx-unprivileged:latest
 WORKDIR /usr/share/nginx/html
 COPY index.html .
 EXPOSE 80
